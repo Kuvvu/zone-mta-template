@@ -20,6 +20,12 @@ module.exports = function (plugin) {
       return;
     }
 
+    const allowedEmails = (plugin.cfg.allowed_emails || []).map(e => e.toLowerCase());
+    if (!allowedEmails.includes(envelopeFrom)) {
+      plugin.loginfo(`Envelope-From (${envelopeFrom}) not in allowed_emails – skipping plugin`);
+      return;
+    }
+
     const certDirectory = plugin.cfg.cert_dir || '/var/lib/zone-mta/smime-certs';
     const certFilename = envelopeFrom.replace(/[@.]/g, '_') + '.p12';
     const certPath = path.join(certDirectory, certFilename);
