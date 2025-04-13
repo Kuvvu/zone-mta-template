@@ -64,6 +64,7 @@ module.exports = function (plugin) {
           plugin.logerror(`OpenSSL failed: ${error}`);
           return reject(new Error(`OpenSSL failed: ${error}`));
         }
+        plugin.loginfo(`SIGNING ${signed}`);
         resolve(signed);
       });
 
