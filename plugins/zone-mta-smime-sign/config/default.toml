@@ -1,0 +1,3 @@
+[plugins.zone-mta-smime-sign]
+enabled = true
+cert_dir = "/cert/smime"
