@@ -1,3 +1,4 @@
 [plugins.zone-mta-smime-sign]
 enabled = true
 cert_dir = "/cert/smime"
+allowed_emails = ["wb@b65.ch"]
